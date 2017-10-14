@@ -6,6 +6,6 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private String gender;      // 'm' of 'f'
-    private String role;        // user, editor, moderator
+    private int gender;      // male, female, trasgender
+    private String role;     // user, editor, moderator
 }
