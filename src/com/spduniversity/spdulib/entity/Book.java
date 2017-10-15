@@ -5,5 +5,6 @@ public class Book extends Item {
     private String publisher;   // O'Relly
     private String[] authors;
     private String genre;   // Engineering, Business, Programming
+    private String language;    // English, Russian, etc
     private double amazonRating;
 }
