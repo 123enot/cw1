@@ -7,4 +7,52 @@ public class Book extends Item {
     private String genre;   // Engineering, Business, Programming
     private String language;    // English, Russian, etc
     private double amazonRating;
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String[] getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String[] authors) {
+        this.authors = authors;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public double getAmazonRating() {
+        return amazonRating;
+    }
+
+    public void setAmazonRating(double amazonRating) {
+        this.amazonRating = amazonRating;
+    }
 }
