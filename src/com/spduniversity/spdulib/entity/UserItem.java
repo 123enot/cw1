@@ -7,6 +7,11 @@ public class UserItem {
     private User user;
     private Item item;
 
+    public UserItem(User user, Item item) {
+        this.user = user;
+        this.item = item;
+    }
+
     public User getUser() {
         return user;
     }

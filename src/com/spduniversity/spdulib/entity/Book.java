@@ -8,6 +8,26 @@ public class Book extends Item {
     private String language;    // English, Russian, etc
     private double amazonRating;
 
+    public Book(
+            long id,
+            String title,
+            String url,
+            int publicationYear,
+            String publisher,
+            String[] authors,
+            String genre,
+            String language,
+            double amazonRating
+    ) {
+        super(id, title, url);
+        this.publicationYear = publicationYear;
+        this.publisher = publisher;
+        this.authors = authors;
+        this.genre = genre;
+        this.language = language;
+        this.amazonRating = amazonRating;
+    }
+
     public int getPublicationYear() {
         return publicationYear;
     }

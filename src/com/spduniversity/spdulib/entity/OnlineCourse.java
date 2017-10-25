@@ -9,6 +9,28 @@ public class OnlineCourse extends Item {
     private String genre;       // Programming, Business, Computer Science
     private double rating;      // 4.9
 
+    public OnlineCourse(
+            long id,
+            String title,
+            String url,
+            String source,
+            String level,
+            String[] authors,
+            int durationInWeeks,
+            String language,
+            String genre,
+            double rating
+    ) {
+        super(id, title, url);
+        this.source = source;
+        this.level = level;
+        this.authors = authors;
+        this.durationInWeeks = durationInWeeks;
+        this.language = language;
+        this.genre = genre;
+        this.rating = rating;
+    }
+
     public String getSource() {
         return source;
     }
