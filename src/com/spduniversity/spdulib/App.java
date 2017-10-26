@@ -5,25 +5,27 @@ import java.util.Arrays;
 
 public class App {
     private static DataStore dataStore;
+    private final String ITEMS = "Items";
+    private final String USERS = "Users";
 
     public static void main(String[] args) {
         dataStore = new DataStore();
+        App app = new App();
 
         if(args.length < 2 || !args[0].equals("-p")) {
             System.out.println("There should be at least 2 parameters and Search should start with \"-p\"");
             return;
         }
-
-        selectSource(args);
+        app.selectSource(args);
     }
 
-    private static void selectSource(String[] queries) {
-        System.out.println("selected params: " + Arrays.deepToString(queries));
+    private void selectSource(String[] queries) {
+        System.out.println("selected params: " + Arrays.toString(queries));
         switch (queries[1]) {
-            case "Items":
+            case ITEMS:
                 selectAction(queries);
                 break;
-            case "Users":
+            case USERS:
                 searchByLogin(queries);
                 break;
             default:
@@ -31,7 +33,7 @@ public class App {
         }
     }
 
-    private static void printLibrary() {
+    private void printLibrary() {
         Item[][] library = dataStore.getItems();
 
         System.out.println("Library:");
@@ -42,7 +44,7 @@ public class App {
         }
     }
 
-    private static void selectAction(String[] queries) {
+    private void selectAction(String[] queries) {
         if(queries.length < 3) {
             printLibrary();
             return;
@@ -64,7 +66,7 @@ public class App {
         }
     }
 
-    private static void searchByGenre(String genre) {
+    private void searchByGenre(String genre) {
         Book[] books = dataStore.getBooks();
         OnlineCourse[] onlineCourses = dataStore.getOnlineCourses();
         int found = 0;
@@ -72,13 +74,13 @@ public class App {
         for(Book book: books) {
             if(book != null && book.getGenre().equals(genre)) {
                 found++;
-                System.out.println(book.getTitle() + " " + Arrays.deepToString(book.getAuthors()) + " " + book.getPublicationYear() + " " + book.getAmazonRating());
+                System.out.println(book);
             }
         }
         for(OnlineCourse onlineCourse: onlineCourses) {
             if(onlineCourse != null && onlineCourse.getGenre().equals(genre)) {
                 found++;
-                System.out.println(onlineCourse.getTitle() + " " + onlineCourse.getSource() + " " + Arrays.deepToString(onlineCourse.getAuthors()) + " " + onlineCourse.getLevel() + " " + onlineCourse.getRating());
+                System.out.println(onlineCourse);
             }
         }
         if(found == 0) {
@@ -86,23 +88,23 @@ public class App {
         }
     }
 
-    private static void printSortedItems() {
+    private void printSortedItems() {
         Book[] books = dataStore.getBooks();
         OnlineCourse[] onlineCourses = dataStore.getOnlineCourses();
 
         for(OnlineCourse onlineCourse: onlineCourses) {
             if(onlineCourse != null) {
-                System.out.println(onlineCourse.getTitle() + " " + onlineCourse.getSource() + " " + Arrays.deepToString(onlineCourse.getAuthors()) + " " + onlineCourse.getLevel() + " " + onlineCourse.getRating());
+                System.out.println(onlineCourse);
             }
         }
         for(Book book: books) {
             if(book != null) {
-                System.out.println(book.getTitle() + " " + Arrays.deepToString(book.getAuthors()) + " " + book.getPublicationYear() + " " + book.getAmazonRating());
+                System.out.println(book);
             }
         }
     }
 
-    private static void searchByLogin(String[] queries) {
+    private void searchByLogin(String[] queries) {
         if(queries.length < 4 || !queries[2].equals("-f")) {
             System.out.println("There should be at least 4 parameters and 3rd parameter should be \"-f\"");;
             return;
@@ -116,11 +118,11 @@ public class App {
                 found++;
                 if(userItem.getItem() instanceof Book) {
                     Book book = (Book) userItem.getItem();
-                    System.out.println(book.getTitle() + " " + Arrays.deepToString(book.getAuthors()) + " " + book.getPublicationYear() + " " + book.getAmazonRating());
+                    System.out.println(book);
                 }
                 if(userItem.getItem() instanceof OnlineCourse) {
                     OnlineCourse onlineCourse = (OnlineCourse) userItem.getItem();
-                    System.out.println(onlineCourse.getTitle() + " " + onlineCourse.getSource() + " " + Arrays.deepToString(onlineCourse.getAuthors()) + " " + onlineCourse.getLevel() + " " + onlineCourse.getRating());
+                    System.out.println(onlineCourse);
                 }
             }
         }

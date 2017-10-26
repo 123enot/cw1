@@ -1,5 +1,7 @@
 package com.spduniversity.spdulib.entity;
 
+import java.util.Arrays;
+
 public class Book extends Item {
     private int publicationYear;    // 2017
     private String publisher;   // O'Relly
@@ -26,6 +28,10 @@ public class Book extends Item {
         this.genre = genre;
         this.language = language;
         this.amazonRating = amazonRating;
+    }
+
+    public String toString() {
+        return getTitle() + " " + Arrays.toString(authors) + " " + publicationYear + " " + amazonRating;
     }
 
     public int getPublicationYear() {

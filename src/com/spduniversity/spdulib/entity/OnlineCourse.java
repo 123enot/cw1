@@ -1,5 +1,7 @@
 package com.spduniversity.spdulib.entity;
 
+import java.util.Arrays;
+
 public class OnlineCourse extends Item {
     private String source;  // Coursera, udemy, edx, Prometheus, etc.
     private String level;   // Basic, Intermediate, Advanced, Hard
@@ -29,6 +31,10 @@ public class OnlineCourse extends Item {
         this.language = language;
         this.genre = genre;
         this.rating = rating;
+    }
+
+    public String toString() {
+        return getTitle() + " " + source + " " + Arrays.toString(authors) + " " + level + " " + rating;
     }
 
     public String getSource() {
