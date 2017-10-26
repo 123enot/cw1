@@ -5,21 +5,21 @@ import java.util.Arrays;
 
 public class App {
     private static DataStore dataStore;
-    private final String ITEMS = "Items";
-    private final String USERS = "Users";
 
     public static void main(String[] args) {
         dataStore = new DataStore();
-        App app = new App();
 
         if(args.length < 2 || !args[0].equals("-p")) {
             System.out.println("There should be at least 2 parameters and Search should start with \"-p\"");
             return;
         }
-        app.selectSource(args);
+        (new App()).selectSource(args);
     }
 
     private void selectSource(String[] queries) {
+        final String ITEMS = "Items";
+        final String USERS = "Users";
+
         System.out.println("selected params: " + Arrays.toString(queries));
         switch (queries[1]) {
             case ITEMS:
