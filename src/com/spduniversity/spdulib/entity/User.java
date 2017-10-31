@@ -6,8 +6,18 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private int gender;      // male, female, transgender
+    private String gender;      // male, female, transgender
     private String role;     // user, editor, moderator
+
+    public User(long id, String login, String password, String firstName, String lastName, String gender, String role) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.role = role;
+    }
 
     public long getId() {
         return id;
@@ -49,11 +59,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
