@@ -62,4 +62,14 @@ public class Map {
     public ArrayList<Stop> getStops() {
         return stops;
     }
+
+    public ArrayList<Route> getRoutesForStop(String stop) {
+        ArrayList<Route> selectedRoutes = new ArrayList<>();
+        for(Route route: routes) {
+            if(route.hasStop(stop)) {
+                selectedRoutes.add(route);
+            }
+        }
+        return selectedRoutes;
+    }
 }
